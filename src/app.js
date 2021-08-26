@@ -1,11 +1,8 @@
-const { defaultMaxListeners } = require("events");
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
-const { request } = require("http");
-const { response } = require("express");
 
 const app = express();
 const port = process.env.PORT || 3000;
