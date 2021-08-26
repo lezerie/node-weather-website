@@ -26,9 +26,6 @@ app.get("", (request, response) => {
     name: "Lezerie",
     describe: "Primary details about the page",
   });
-});
-
-app.get("/weather", (request, response) => {
   if (!request.query.address) {
     return response.send({
       error: "You must provide a valid location",
@@ -54,6 +51,33 @@ app.get("/weather", (request, response) => {
     }
   );
 });
+
+// app.get("/weather", (request, response) => {
+// if (!request.query.address) {
+//   return response.send({
+//     error: "You must provide a valid location",
+//   });
+// }
+// geocode(
+//   request.query.address,
+//   (error, { latitude, longitude, location } = {}) => {
+//     if (error) {
+//       return response.send({ error });
+//     }
+//     forecast(latitude, longitude, (error, forecastData) => {
+//       if (error) {
+//         return response.send({ error });
+//       }
+
+//       response.send({
+//         forecast: forecastData,
+//         location,
+//         address: request.query.address,
+//       });
+//     });
+//   }
+// );
+// });
 
 app.get("/help", (request, response) => {
   response.render("help", {
